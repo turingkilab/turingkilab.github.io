@@ -20,4 +20,35 @@ $(function(){
 });
  </script>
 
+##How to Do It?
+
+The code provide blow needs to run at the browsers which support HTML5,and I have used the [`photobooth`](http://wolframhempel.github.io/photobooth-js/) ,which is a efficient tool for creating camera-based web applications.
+
+At first,we need to include to `photobooth`:
+
+{% highlight html %}
+
+ <script type="text/javascript" src = "js/photobooth_min.js"></script>
+
+ <div id="example" style="width: 470px; height: 300px;"></div>
+
+ <div id="gallery"></div>
  
+
+{% endhighlight %}
+
+Then running:
+
+{% highlight js %}
+
+    $(function(){ 
+
+        $( '#example' ).photobooth().on( "image", function( event, dataUrl ){
+
+            $( "#gallery" ).show().html( '<img src="' + dataUrl + '" >');
+
+        });
+
+    });
+
+{% endhighlight %}
